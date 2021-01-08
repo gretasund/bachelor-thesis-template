@@ -1,0 +1,60 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{etoolbox}
+\usepackage{fancyvrb}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+%\usepackage{import}
+\usepackage{listings}
+%\usepackage{minted}
+\usepackage{url}
+
+\usepackage[
+	% Prevent hyperlinks from getting an ugly border
+    hidelinks,
+    % Set proper PDF metadata
+    pdftex,
+    pdfauthor={Your Name},
+    pdftitle={Thesis Title},
+    pdfsubject={PDF Subject},
+    pdfkeywords={keyword1, keyword2, keyword3}
+]{hyperref}
+
+% Don't display "References" when rendering the bibliography
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+
+% Use appropriate font size for line numbers in listings
+\renewcommand{\theFancyVerbLine}{{\small\arabic{FancyVerbLine}}}
+
+\lstset{basicstyle=\ttfamily}
+\newcommand{\code}[1]{\texttt{#1}}
+
+\setlength{\footnotesep}{0.4cm}
+\setlength{\skip\footins}{0.5cm}
+
+\def\doctype{Bachelor's Thesis in Computer Science}
+\def\title{The Title \\ of your Thesis}
+\def\author{Your Name}
+\def\date{Submission Date}
+
+\begin{document}
+
+\include{sections/_meta/cover}
+\include{sections/_meta/page-1}
+\include{sections/_meta/single-handed-composition}
+
+\newpage
+\thispagestyle{empty}
+\null
+
+\include{sections/_meta/abstract}
+
+\newpage
+\pagestyle{empty}
+\tableofcontents
+
+\newpage
+\pagestyle{plain}
+\setcounter{page}{1}
+
+\end{document}
